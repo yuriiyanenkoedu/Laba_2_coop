@@ -1,0 +1,7 @@
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\obj\Debug\Laba_2_coop.csproj.AssemblyReference.cache
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\obj\Debug\Laba_2_coop.csproj.CoreCompileInputs.cache
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\bin\Debug\Laba_2_coop.exe.config
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\bin\Debug\Laba_2_coop.exe
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\bin\Debug\Laba_2_coop.pdb
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\obj\Debug\Laba_2_coop.exe
+D:\проекти VS\Палм 2 сем\Laba_2_coop\Laba_2_coop\obj\Debug\Laba_2_coop.pdb
