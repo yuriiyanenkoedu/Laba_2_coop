@@ -12,7 +12,7 @@ namespace Laba_2_coop
         {
             Console.WriteLine("Який блок? (1 або 2)");
             int choise = int.Parse(Console.ReadLine());
-            switch(choise)
+            switch (choise)
             {
                 case 1:
                     {
@@ -48,7 +48,7 @@ namespace Laba_2_coop
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v3(num, HandmadeArray(num)));
+            Print(Block1v3(num, HandmadeArraySpaces(num)));
             Console.ReadKey();
         }
         static int[,] CreateArrayHand(int[,] arr)
@@ -61,6 +61,43 @@ namespace Laba_2_coop
                 {
                     arr[i, j] = int.Parse(law[j]);
                 }
+            }
+            return arr;
+        }
+
+        static void Randomfill(int n, int[] myArray)
+        {
+
+            Console.WriteLine("Enter the min value of the array:\t");
+            int minValue = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the max value of the array:\t");
+            int maxValue = int.Parse(Console.ReadLine());
+            Random ran = new Random();
+
+            Console.WriteLine("Your array:");
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                myArray[i] = ran.Next(minValue, maxValue);
+                Console.Write(myArray[i] + " ");
+            }
+
+        }
+        static void HandmadeEnter(int[] myArray)
+        {
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine("Enter the number on {i} index:\t");
+                myArray[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        static int[] HandmadeArraySpaces(int n)
+        {
+            string[] spArr = Console.ReadLine().Trim().Split();
+            int[] arr = new int[n];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = int.Parse(spArr[i]);
             }
             return arr;
         }
@@ -86,16 +123,7 @@ namespace Laba_2_coop
                 Erase(ref arr, keyInd);
             return arr;
         }
-        static int[] HandmadeArray(int n)
-        {
-            string[] spArr = Console.ReadLine().Trim().Split();
-            int[] arr = new int[n];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = int.Parse(spArr[i]);
-            }
-            return arr;
-        }
+
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -106,5 +134,5 @@ namespace Laba_2_coop
             return arr;
         }
     }
-    
-}
+}    
+
