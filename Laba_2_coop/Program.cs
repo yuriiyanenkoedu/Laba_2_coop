@@ -12,7 +12,7 @@ namespace Laba_2_coop
         {
             Console.WriteLine("Який блок? (1 або 2)");
             int choise = int.Parse(Console.ReadLine());
-            switch(choise)
+            switch (choise)
             {
                 case 1:
                     {
@@ -146,5 +146,5 @@ namespace Laba_2_coop
             }
         }
     }
-    
-}
+}    
+
