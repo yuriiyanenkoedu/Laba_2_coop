@@ -133,6 +133,42 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
+        static void JaggArratInput(int n, int m, ref int[][] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                string[] arrElem = Console.ReadLine().Trim().Split();
+                //arr[i] = Array.ConvertAll(
+                // Console.ReadLine().Split("\"".ToCharArray(),StringSplitOptions. RemoveEmptyEntries), int.Parse);
+                for (int j = 0; j < m; j++)
+                {
+                    arr[i][j] = int.Parse(arrElem[j]);
+                }
+            }
+        }
+        static void PrintJaggArr(int n, int m, int[][] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+        static void Block2()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int[][] jagArr = new int[n][];
+
+        }
+        static int[][] Var3Block2(int[][] arr)
+        {
+            int[][] bArr = (int[][])arr.Clone();
+            return bArr;
+        }
     }
 }    
 
