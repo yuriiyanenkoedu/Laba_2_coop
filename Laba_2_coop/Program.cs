@@ -123,15 +123,9 @@ namespace Laba_2_coop
                 
             }
             return array;
-
         }
         static int[] Erase1(ref int[] arr, int keyInd)
         {
-            int[] b;
-            if (arr.Length % 2 == 0)
-                b = new int[arr.Length / 2];
-            else
-                b = new int[arr.Length - arr.Length % 2];
             for (int i = keyInd + 1; i < arr.Length; i++)
             {
                 arr[i - 1] = arr[i];
@@ -139,6 +133,7 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
+        
     }
     
 }
