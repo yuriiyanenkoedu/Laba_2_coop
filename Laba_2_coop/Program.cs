@@ -21,6 +21,7 @@ namespace Laba_2_coop
                     }
                 case 2:
                     {
+                        Block2();
                         break;
                     }
             }
@@ -133,27 +134,25 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-        static void JaggArratInput(int n, int m, ref int[][] arr)
+        static int[,] MatrixInput(int n, int m, int[,] arr)
         {
             for (int i = 0; i < n; i++)
             {
                 string[] arrElem = Console.ReadLine().Trim().Split();
-                //arr[i] = Array.ConvertAll(
-                // Console.ReadLine().Split("\"".ToCharArray(),StringSplitOptions. RemoveEmptyEntries), int.Parse);
+
                 for (int j = 0; j < m; j++)
                 {
-                    arr[i][j] = int.Parse(arrElem[j]);
+                    arr[i,j] = int.Parse(arrElem[j]);
                 }
             }
+            return arr;
         }
-        static void PrintJaggArr(int n, int m, int[][] arr)
+        static void PrintMatrix(int[,] arr)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for (int j = 0; j < m; j++)
-                {
-                    Console.Write(arr[i][j] + " ");
-                }
+                for(int j = 0; j < arr.GetLength(1); j++)
+                Console.Write("{0} ", arr[i, j]);
                 Console.WriteLine();
             }
         }
@@ -161,12 +160,24 @@ namespace Laba_2_coop
         {
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
-            int[][] jagArr = new int[n][];
-
+            int[,] matrix = new int[n, m];
+            MatrixInput(n, m, matrix);
+            //PrintMatrix(matrix);
+            PrintMatrix(Var3Block2(matrix));
+           
+            Console.ReadLine();
         }
-        static int[][] Var3Block2(int[][] arr)
+        static int[,] Var3Block2(int[,] arr)
         {
-            int[][] bArr = (int[][])arr.Clone();
+            int k = int.Parse(Console.ReadLine());
+            int[,] bArr = new int[arr.GetLength(0), arr.GetLength(1) + k];
+            for (int i = 0; i > arr.GetLength(0); i++)
+            {
+                for (int j = arr.GetLength(1) - 1; j > 0; j--)
+                {
+                    bArr[i, j + k] = arr[i, j];
+                }
+            }
             return bArr;
         }
     }
