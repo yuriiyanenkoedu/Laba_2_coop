@@ -51,16 +51,40 @@ namespace Laba_2_coop
             Print(Block1v3(num, HandmadeArray(num)));
             Console.ReadKey();
         }
-        static int[,] CreateArrayHand(int[,] arr)
+        //Block1
+        static void Randomfill(int n, int[] myArray)
         {
 
-            for (int i = 0; i < arr.GetLength(0); i++)
+            Console.WriteLine("Enter the min value of the array:\t");
+            int minValue = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the max value of the array:\t");
+            int maxValue = int.Parse(Console.ReadLine());
+            Random ran = new Random();
+
+            Console.WriteLine("Your array:");
+            for (int i = 0; i < myArray.Length; i++)
             {
-                string[] law = Console.ReadLine().Trim().Split();
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    arr[i, j] = int.Parse(law[j]);
-                }
+                myArray[i] = ran.Next(minValue, maxValue);
+                Console.Write(myArray[i] + " ");
+            }
+
+        }
+        static void HandmadeEnter(int[] myArray)
+        {
+
+            for (int i = 0; i < myArray.Length; i++)
+            {
+                Console.WriteLine("Enter the number on {i} index:\t");
+                myArray[i] = int.Parse(Console.ReadLine());
+            }
+        }
+        static int[] HandmadeArray(int n)
+        {
+            string[] spArr = Console.ReadLine().Trim().Split();
+            int[] arr = new int[n];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = int.Parse(spArr[i]);
             }
             return arr;
         }
@@ -86,16 +110,7 @@ namespace Laba_2_coop
                 Erase(ref arr, keyInd);
             return arr;
         }
-        static int[] HandmadeArray(int n)
-        {
-            string[] spArr = Console.ReadLine().Trim().Split();
-            int[] arr = new int[n];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = int.Parse(spArr[i]);
-            }
-            return arr;
-        }
+       
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -104,6 +119,31 @@ namespace Laba_2_coop
             }
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
+        }
+        //Block2 input
+        static void JaggArratInput(int n, int m, ref int[][] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                string[] arrElem = Console.ReadLine().Trim().Split();
+                //arr[i] = Array.ConvertAll(
+                // Console.ReadLine().Split("\"".ToCharArray(),StringSplitOptions. RemoveEmptyEntries), int.Parse);
+                for (int j = 0; j < m; j++)
+                {
+                    arr[i][j] = int.Parse(arrElem[j]);
+                }
+            }
+        }
+        static void PrintJaggArr(int n, int m, int[][] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
         }
     }
     
