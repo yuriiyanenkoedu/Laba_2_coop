@@ -39,6 +39,7 @@ namespace Laba_2_coop
                     }
                 case 5:
                     {
+                        Var5b1();
                         break;
                     }
                 case 6:
@@ -72,25 +73,15 @@ namespace Laba_2_coop
 
         }
         static void HandmadeEnter(int[] myArray)
-        {
+                {
 
             for (int i = 0; i < myArray.Length; i++)
             {
                 Console.WriteLine("Enter the number on {i} index:\t");
                 myArray[i] = int.Parse(Console.ReadLine());
+                }
             }
-        }
         static int[] HandmadeArray(int n)
-        {
-            string[] spArr = Console.ReadLine().Trim().Split();
-            int[] arr = new int[n];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = int.Parse(spArr[i]);
-            }
-            return arr;
-        }
-        static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
             int[] arr = new int[n];
@@ -139,20 +130,17 @@ namespace Laba_2_coop
                 string[] arrElem = Console.ReadLine().Trim().Split();
 
                 for (int j = 0; j < m; j++)
-                {
+            {
                     arr[i,j] = int.Parse(arrElem[j]);
                 }
             }
             return arr;
         }
-        static void PrintMatrix(int[,] arr)
+        static void Var5b1()
         {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for(int j = 0; j < arr.GetLength(1); j++)
-                Console.Write("{0} ", arr[i, j]);
-                Console.WriteLine();
-            }
+            int num = int.Parse(Console.ReadLine());
+            Print(Block1v5(num, HandmadeArray(num)));
+            Console.ReadKey();
         }
         static void Block2()
         {
@@ -161,20 +149,24 @@ namespace Laba_2_coop
             switch (choise)
             {
                 case 3:
-                    {
+        static int[] Block1v5(int num, int[] array)
+        {
+            for (int i = array.Length-1; i>=0; i--)
                         Var3Block2();
                         break;
                     }
                 case 5:
-                    {
+            {
                         break;
                     }
                 case 6:
-                    {
+                if (i%2==0)
+                {
                         break;
                     }
             }
-        }
+                    Erase1(ref array, i);
+                }
         static void Var3Block2()
         {
             int n = int.Parse(Console.ReadLine());
@@ -182,8 +174,7 @@ namespace Laba_2_coop
             int[,] matrix = new int[n, m];
             MatrixInput(n, m, matrix);
             PrintMatrix(InsertRows(n, m, matrix));
-           
-            Console.ReadKey();
+                
         }
         static int[,] InsertRows(int n, int m, int[,] arr)
         {
@@ -192,16 +183,21 @@ namespace Laba_2_coop
             for (int i = 0; i < n; i++)
             {
                 for (int j = m - 1; j >= 0; j--)
-                {
+        {
                     bArr[i, j + k] = arr[i, j];   
                 }
                 for (int j = 0; j < k; j++)
-                {
+            {
                     bArr[i, j] = arr[i, j];
                 }
             }
             return bArr;
+                arr[i - 1] = arr[i];
+            }
+            Array.Resize(ref arr, arr.Length - 1);
+            return arr;
         }
+        
     }
-}    
-
+    
+}
