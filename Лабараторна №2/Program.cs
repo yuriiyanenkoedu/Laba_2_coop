@@ -12,6 +12,7 @@ namespace Laba_2_coop
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             int choise;
+            HandmadeEnte
             do
             {
                 Console.Clear();
@@ -25,7 +26,7 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("Block - 1 is in progress!");
-                            Console.WriteLine("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will be Tsaryova Alyona)\n\t\t Option 6: enter number 6 (your curator will be Bezpalko Maria)\n\t\t ");
+                            Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will be Tsaryova Alyona)\n\t\t Option 6: enter number 6 (your curator will be Bezpalko Maria)\n\t\t ");
                             Block1();
                             Console.Clear();
                             break;
@@ -33,7 +34,7 @@ namespace Laba_2_coop
                     case 2:
                         {
                             Console.WriteLine("Block - 2 is in progress!");
-                            Console.WriteLine("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will Tsaryova Alyona)\n\t\t Option 6: enter the number 6 (your curator will be Bezpalko Maria)\n\t\t ");
+                            Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will Tsaryova Alyona)\n\t\t Option 6: enter the number 6 (your curator will be Bezpalko Maria)\n\t\t ");
                             Block2();
                             Console.Clear();
                             break;
@@ -82,7 +83,7 @@ namespace Laba_2_coop
             Console.ReadKey();
         }
         //Block1
-        static void Randomfill(int n, int[] myArray)
+        static void RandomFill(int n, int[] myArray)//Двохвимірний
         {
 
             Console.WriteLine("Enter the min value of the array:\t");
