@@ -81,7 +81,7 @@ namespace Laba_2_coop
                 myArray[i] = int.Parse(Console.ReadLine());
                 }
             }
-        static int[] HandmadeArray(int n)
+        static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
             int[] arr = new int[n];
@@ -139,8 +139,19 @@ namespace Laba_2_coop
         static void Var5b1()
         {
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v5(num, HandmadeArray(num)));
+            Print(Block1v5(num, HandmadeArraySpaces(num)));
             Console.ReadKey();
+        }
+        static int[] Block1v5(int num, int[] array) 
+        {
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    Erase(ref array, i);
+                }
+            }
+            return array;
         }
         static void Block2()
         {
@@ -149,24 +160,29 @@ namespace Laba_2_coop
             switch (choise)
             {
                 case 3:
-        static int[] Block1v5(int num, int[] array)
-        {
-            for (int i = array.Length-1; i>=0; i--)
+                    {
                         Var3Block2();
                         break;
                     }
                 case 5:
-            {
+                    {
                         break;
                     }
                 case 6:
-                if (i%2==0)
-                {
+                    {
                         break;
                     }
+            } 
+         }
+        static void PrintMatrix(int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                    Console.Write("{0} ", arr[i, j]);
+                Console.WriteLine();
             }
-                    Erase1(ref array, i);
-                }
+        }
         static void Var3Block2()
         {
             int n = int.Parse(Console.ReadLine());
@@ -183,21 +199,15 @@ namespace Laba_2_coop
             for (int i = 0; i < n; i++)
             {
                 for (int j = m - 1; j >= 0; j--)
-        {
+                {
                     bArr[i, j + k] = arr[i, j];   
                 }
                 for (int j = 0; j < k; j++)
-            {
+                {
                     bArr[i, j] = arr[i, j];
                 }
             }
             return bArr;
-                arr[i - 1] = arr[i];
-            }
-            Array.Resize(ref arr, arr.Length - 1);
-            return arr;
         }
-        
     }
-    
 }
