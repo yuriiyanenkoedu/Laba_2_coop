@@ -28,6 +28,7 @@ namespace Laba_2_coop
         }
         static void Block1()
         {
+            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
             int choise = int.Parse(Console.ReadLine());
             switch (choise)
             {
@@ -38,6 +39,7 @@ namespace Laba_2_coop
                     }
                 case 5:
                     {
+                        Var5b1();
                         break;
                     }
                 case 6:
@@ -49,7 +51,7 @@ namespace Laba_2_coop
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v3(num, HandmadeArray(num)));
+            Print(Block1v3(num, HandmadeArraySpaces(num)));
             Console.ReadKey();
         }
         //Block1
@@ -71,15 +73,15 @@ namespace Laba_2_coop
 
         }
         static void HandmadeEnter(int[] myArray)
-        {
+                {
 
             for (int i = 0; i < myArray.Length; i++)
             {
                 Console.WriteLine("Enter the number on {i} index:\t");
                 myArray[i] = int.Parse(Console.ReadLine());
+                }
             }
-        }
-        static int[] HandmadeArray(int n)
+        static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
             int[] arr = new int[n];
@@ -111,7 +113,7 @@ namespace Laba_2_coop
                 Erase(ref arr, keyInd);
             return arr;
         }
-       
+
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -121,79 +123,91 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-<<<<<<< HEAD
         static int[,] MatrixInput(int n, int m, int[,] arr)
-=======
-        //Block2 input
-        static void JaggArratInput(int n, int m, ref int[][] arr)
->>>>>>> master
         {
             for (int i = 0; i < n; i++)
             {
                 string[] arrElem = Console.ReadLine().Trim().Split();
-<<<<<<< HEAD
 
                 for (int j = 0; j < m; j++)
-                {
+            {
                     arr[i,j] = int.Parse(arrElem[j]);
                 }
             }
             return arr;
         }
+        static void Var5b1()
+        {
+            int num = int.Parse(Console.ReadLine());
+            Print(Block1v5(num, HandmadeArraySpaces(num)));
+            Console.ReadKey();
+        }
+        static int[] Block1v5(int num, int[] array) 
+        {
+            for (int i = array.Length - 1; i >= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    Erase(ref array, i);
+                }
+            }
+            return array;
+        }
+        static void Block2()
+        {
+            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
+            int choise = int.Parse(Console.ReadLine());
+            switch (choise)
+            {
+                case 3:
+                    {
+                        Var3Block2();
+                        break;
+                    }
+                case 5:
+                    {
+                        break;
+                    }
+                case 6:
+                    {
+                        break;
+                    }
+            } 
+         }
         static void PrintMatrix(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
             {
-                for(int j = 0; j < arr.GetLength(1); j++)
-                Console.Write("{0} ", arr[i, j]);
+                for (int j = 0; j < arr.GetLength(1); j++)
+                    Console.Write("{0} ", arr[i, j]);
                 Console.WriteLine();
             }
         }
-        static void Block2()
+        static void Var3Block2()
         {
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
             int[,] matrix = new int[n, m];
             MatrixInput(n, m, matrix);
-            //PrintMatrix(matrix);
-            PrintMatrix(Var3Block2(matrix));
-           
-            Console.ReadLine();
+            PrintMatrix(InsertRows(n, m, matrix));
+                
         }
-        static int[,] Var3Block2(int[,] arr)
+        static int[,] InsertRows(int n, int m, int[,] arr)
         {
             int k = int.Parse(Console.ReadLine());
-            int[,] bArr = new int[arr.GetLength(0), arr.GetLength(1) + k];
-            for (int i = 0; i > arr.GetLength(0); i++)
+            int[,] bArr = new int[n, m + k];
+            for (int i = 0; i < n; i++)
             {
-                for (int j = arr.GetLength(1) - 1; j > 0; j--)
+                for (int j = m - 1; j >= 0; j--)
                 {
-                    bArr[i, j + k] = arr[i, j];
+                    bArr[i, j + k] = arr[i, j];   
+                }
+                for (int j = 0; j < k; j++)
+                {
+                    bArr[i, j] = arr[i, j];
                 }
             }
             return bArr;
         }
-=======
-                //arr[i] = Array.ConvertAll(
-                // Console.ReadLine().Split("\"".ToCharArray(),StringSplitOptions. RemoveEmptyEntries), int.Parse);
-                for (int j = 0; j < m; j++)
-                {
-                    arr[i][j] = int.Parse(arrElem[j]);
-                }
-            }
-        }
-        static void PrintJaggArr(int n, int m, int[][] arr)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                for (int j = 0; j < m; j++)
-                {
-                    Console.Write(arr[i][j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
->>>>>>> master
     }
-}    
-
+}
