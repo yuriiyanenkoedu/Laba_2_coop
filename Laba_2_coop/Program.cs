@@ -49,23 +49,10 @@ namespace Laba_2_coop
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v3(num, HandmadeArraySpaces(num)));
+            Print(Block1v3(num, HandmadeArray(num)));
             Console.ReadKey();
         }
-        static int[,] CreateArrayHand(int[,] arr)
-        {
-
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                string[] law = Console.ReadLine().Trim().Split();
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    arr[i, j] = int.Parse(law[j]);
-                }
-            }
-            return arr;
-        }
-
+        //Block1
         static void Randomfill(int n, int[] myArray)
         {
 
@@ -92,7 +79,7 @@ namespace Laba_2_coop
                 myArray[i] = int.Parse(Console.ReadLine());
             }
         }
-        static int[] HandmadeArraySpaces(int n)
+        static int[] HandmadeArray(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
             int[] arr = new int[n];
@@ -124,7 +111,7 @@ namespace Laba_2_coop
                 Erase(ref arr, keyInd);
             return arr;
         }
-
+       
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -134,11 +121,17 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
+<<<<<<< HEAD
         static int[,] MatrixInput(int n, int m, int[,] arr)
+=======
+        //Block2 input
+        static void JaggArratInput(int n, int m, ref int[][] arr)
+>>>>>>> master
         {
             for (int i = 0; i < n; i++)
             {
                 string[] arrElem = Console.ReadLine().Trim().Split();
+<<<<<<< HEAD
 
                 for (int j = 0; j < m; j++)
                 {
@@ -180,6 +173,27 @@ namespace Laba_2_coop
             }
             return bArr;
         }
+=======
+                //arr[i] = Array.ConvertAll(
+                // Console.ReadLine().Split("\"".ToCharArray(),StringSplitOptions. RemoveEmptyEntries), int.Parse);
+                for (int j = 0; j < m; j++)
+                {
+                    arr[i][j] = int.Parse(arrElem[j]);
+                }
+            }
+        }
+        static void PrintJaggArr(int n, int m, int[][] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr[i][j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
+>>>>>>> master
     }
 }    
 
