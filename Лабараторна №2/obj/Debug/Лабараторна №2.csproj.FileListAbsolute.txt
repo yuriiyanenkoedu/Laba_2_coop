@@ -1,0 +1,7 @@
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\bin\Debug\Лабараторна №2.exe.config
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\bin\Debug\Лабараторна №2.exe
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\bin\Debug\Лабараторна №2.pdb
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\obj\Debug\Лабараторна №2.csproj.AssemblyReference.cache
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\obj\Debug\Лабараторна №2.csproj.CoreCompileInputs.cache
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\obj\Debug\Лабараторна №2.exe
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна №2\Лабараторна №2\obj\Debug\Лабараторна №2.pdb
