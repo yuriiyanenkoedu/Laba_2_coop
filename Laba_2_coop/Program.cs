@@ -42,6 +42,7 @@ namespace Laba_2_coop
                     }
                 case 6:
                     {
+                        
                         break;
                     }
             }
@@ -138,6 +139,74 @@ namespace Laba_2_coop
             }
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
+        }
+        static void Block2()
+        {
+            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
+            int choise = int.Parse(Console.ReadLine());
+            switch (choise)
+            {
+                case 3:
+                    {
+                        
+                        break;
+                    }
+                case 5:
+                    {
+                        Var5Block2();
+                        break;
+                    }
+                case 6:
+                    {
+                        break;
+                    }
+            }
+        }
+        static int[,] MatrixInput(int n, int m, int[,] arr)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                string[] arrElem = Console.ReadLine().Trim().Split();
+
+                for (int j = 0; j < m; j++)
+                {
+                    arr[i, j] = int.Parse(arrElem[j]);
+                }
+            }
+            return arr;
+        }
+        static void PrintMatrix(int[,] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                for (int j = 0; j < arr.GetLength(1); j++)
+                    Console.Write("{0} ", arr[i, j]);
+                Console.WriteLine();
+            }
+        }
+        static void Var5Block2()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
+            int[,] matrix = new int[n, m];
+            MatrixInput(n, m, matrix);
+            PrintMatrix(Deleter(n,m,matrix));
+
+        }
+        static int[,] Deleter(int n, int m, int[,] matrix)
+        {
+            int k1 = int.Parse(Console.ReadLine());
+            int k2 = int.Parse(Console.ReadLine());
+            int del = k2 - k1;
+            for (int i = 0; i >=k1; i ++)
+            {
+                for (int j = 0; j <=k2; j++)
+                {
+                    matrix[i, j] = matrix[n-del,m];
+                    Console.WriteLine(matrix);
+                }
+            }
+            return (matrix);
         }
     }
     
