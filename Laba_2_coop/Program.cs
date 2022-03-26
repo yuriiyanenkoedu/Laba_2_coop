@@ -10,43 +10,71 @@ namespace Laba_2_coop
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Який блок? (1 або 2)");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
+            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            int choise;
+
+            do
             {
-                case 1:
-                    {
-                        Block1();
-                        break;
-                    }
-                case 2:
-                    {
-                        Block2();
-                        break;
-                    }
-            }
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.Write("Welcome, dear user!\nWe have blocks 1 and 2 to choose from:   ");
+                choise = int.Parse(Console.ReadLine());
+                Console.Clear();
+                switch (choise)
+                {
+                    case 1:
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            Console.WriteLine("Block - 1 is in progress!");
+                            Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will be Tsaryova Alyona)\n\t\t Option 6: enter number 6 (your curator will be Bezpalko Maria)\n\t\t ");
+                            Block1();
+                            Console.Clear();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("Block - 2 is in progress!");
+                            Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will Tsaryova Alyona)\n\t\t Option 6: enter the number 6 (your curator will be Bezpalko Maria)\n\t\t ");
+                            Block2();
+                            Console.Clear();
+                            break;
+                        }
+                }
+                Console.ReadKey();
+            } while (choise != 0);
+            Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
+            Console.ReadKey();
         }
         static void Block1()
         {
-            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
+            int choise;
+            do
             {
-                case 3:
-                    {
-                        Var3b1();
-                        break;
-                    }
-                case 5:
-                    {
-                        Var5b1();
-                        break;
-                    }
-                case 6:
-                    {
-                        break;
-                    }
-            }
+                choise = int.Parse(Console.ReadLine());
+                switch (choise)
+                {
+                    case 3:
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkBlue;
+                            Console.WriteLine("We are performing option 3!");
+                            Var3b1();
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Magenta;
+                            Console.WriteLine("We are performing option 5!");
+                            Var5b1();
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.WriteLine("We are performing option 6!");
+                            break;
+                        }
+                }
+            } while (choise != 0);
         }
         static void Var3b1()
         {

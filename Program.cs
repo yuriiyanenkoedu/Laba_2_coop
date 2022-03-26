@@ -12,7 +12,7 @@ namespace Laba_2_coop
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             int choise;
-            HandmadeEnte
+            
             do
             {
                 Console.Clear();
