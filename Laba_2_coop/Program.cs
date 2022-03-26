@@ -134,7 +134,6 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-<<<<<<< HEAD
         static void Block2()
         {
             Console.WriteLine("Оберiть варiант: 3, 5 або 6");
@@ -203,9 +202,6 @@ namespace Laba_2_coop
             }
             return (matrix);
         }
-=======
-        
->>>>>>> 51e84a105e76d62109f5e692e265425f7c43c7ba
     }
     
 }
