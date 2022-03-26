@@ -12,7 +12,6 @@ namespace Laba_2_coop
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             int choise;
-            HandmadeEnte
             do
             {
                 Console.Clear();
@@ -76,6 +75,7 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
+
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
