@@ -21,6 +21,7 @@ namespace Laba_2_coop
                     }
                 case 2:
                     {
+                        Block2();
                         break;
                     }
             }
@@ -181,26 +182,47 @@ namespace Laba_2_coop
         static void Var5Block2()
         {
             int n = int.Parse(Console.ReadLine());
-            int m = int.Parse(Console.ReadLine());
-            int[,] matrix = new int[n, m];
-            MatrixInput(n, m, matrix);
-            PrintMatrix(Deleter(n,m,matrix));
-
+            int[][] mass = new int[n][];
+            ZubMas(mass,n);
+            PrintZub(Deleter(mass, n));
+            Console.ReadKey();
         }
-        static int[,] Deleter(int n, int m, int[,] matrix)
+        static int[][] ZubMas(int[][] mass, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
+                mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
+            }
+            return mass;
+        }
+        static void PrintZub(int[][] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+            {
+                for (int j = 0; j < mass[i].Length; j++)
+                {
+                    Console.Write("{0} ", mass[i][j]);
+                }
+                Console.WriteLine();
+            }
+        }
+        static int[][] Deleter(int[][] mass, int n)
         {
             int k1 = int.Parse(Console.ReadLine());
             int k2 = int.Parse(Console.ReadLine());
-            int del = k2 - k1;
-            for (int i = 0; i >=k1; i ++)
+            int v = k2 - k1;
+            int[][] b = new int[n-v][];
+            for (int i = 0; i < k1; i++)
             {
-                for (int j = 0; j <=k2; j++)
-                {
-                    matrix[i, j] = matrix[n-del,m];
-                    Console.WriteLine(matrix);
-                }
+                b[i]=mass[i];
+
             }
-            return (matrix);
+            for (int i = k2; i < mass.Length; i++)
+            {
+                b[i-v] = mass[i];
+            }
+            return b;
         }
     }
     
