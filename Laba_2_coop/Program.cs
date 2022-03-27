@@ -17,7 +17,7 @@ namespace Laba_2_coop
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.Write("Welcome, dear user!\nWe have blocks 1 and 2 to choose from:   ");
+                Console.Write("Welcome, dear user! If you want to leave us, input 0\nWe have blocks 1 and 2 to choose from:   ");
                 choise = int.Parse(Console.ReadLine());
                 Console.Clear();
                 switch (choise)
@@ -39,8 +39,12 @@ namespace Laba_2_coop
                             Console.Clear();
                             break;
                         }
+                    default:
+                        {
+                            Console.WriteLine("Dear user, you input smth wrong");
+                            break;
+                        }
                 }
-                Console.ReadKey();
             } while (choise != 0);
             Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
             Console.ReadKey();
@@ -162,18 +166,6 @@ namespace Laba_2_coop
             int[] arr = new int[num];
             ReabLineOneMass(ref arr);
             Print(Block1v3(num, arr));
-            Console.ReadKey();
-        }
-      
-        static int[] HandmadeArraySpaces(int n)
-        {
-            string[] spArr = Console.ReadLine().Trim().Split();
-            int[] myArray = new int[n];
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                myArray[i] = int.Parse(spArr[i]);
-            }
-            return myArray;
         }
         static void Print(int[] myArray)
         {
@@ -208,26 +200,15 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-        static int[,] MatrixInput(int n, int m, int[,] arr)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                string[] arrElem = Console.ReadLine().Trim().Split();
-
-                for (int j = 0; j < m; j++)
-                {
-                    arr[i, j] = int.Parse(arrElem[j]);
-                }
-            }
-            return arr;
-        }
+        
         static void Var5b1()
         {
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v5(num, HandmadeArraySpaces(num)));
-            Console.ReadKey();
+            int[] arr = new int[num];
+            ReabLineOneMass(ref arr);
+            Print(Block1v5(arr));
         }
-        static int[] Block1v5(int num, int[] array)
+        static int[] Block1v5(int[] array)
         {
             for (int i = array.Length - 1; i >= 0; i--)
             {
@@ -269,16 +250,16 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
-        
         static void Var3Block2()
         {
+            Console.WriteLine("Input amount of rows");
             int n = int.Parse(Console.ReadLine());
-           
+            Console.WriteLine("Input amount of laws");
+            int m = int.Parse(Console.ReadLine());
             int[][] matrix = new int[n][];
-            ZubMas(matrix, n);
+            ZubMas(matrix, n, m);
             PrintZub(InsertRows(n, matrix));
-            Console.ReadKey();
-                
+            Console.ReadKey();   
         }
         static int[][] InsertRows(int n, int[][] arr)
         {
@@ -299,19 +280,41 @@ namespace Laba_2_coop
         static void Var5Block2()
         {
             int n = int.Parse(Console.ReadLine());
+            int m = int.Parse(Console.ReadLine());
             int[][] mass = new int[n][];
-            ZubMas(mass,n);
+            ZubMas(mass, n, m);
             PrintZub(Deleter(mass, n));
             Console.ReadKey();
         }
-        static int[][] ZubMas(int[][] mass, int n)
+        static int[][] ZubMas(int[][] mass, int n, int m)
         {
             for (int i = 0; i < n; i++)
             {
+                mass[i] = new int[m];
                 Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
-                mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
+                string[] arrinput = Console.ReadLine().Trim().Split();
+               
+                //mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
+                for (int j = 0; j < m; j++)
+                {
+                    mass[i][j] = int.Parse(arrinput[j]);
+                }
             }
             return mass;
+        }
+        static void RandJagg(ref int[][] arr, int n, int m)
+        {
+            Random rnd = new Random();
+            int min = int.Parse(Console.ReadLine());
+            int max = int.Parse(Console.ReadLine());
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] = new int[m];
+                for (int j = 0; j < arr[i].Length; j++)
+                {
+                    arr[i][j] = rnd.Next(min, max);
+                }
+            }
         }
         static void PrintZub(int[][] mass)
         {
