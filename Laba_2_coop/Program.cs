@@ -123,16 +123,13 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-        static int[,] MatrixInput(int n, int m, int[,] arr)
+        static int[][] JaggInput(int n, int m, int[][] arr)
         {
             for (int i = 0; i < n; i++)
             {
-                string[] arrElem = Console.ReadLine().Trim().Split();
-
-                for (int j = 0; j < m; j++)
-            {
-                    arr[i,j] = int.Parse(arrElem[j]);
-                }
+                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
+            arr[i] = Array.ConvertAll(
+            Console.ReadLine().Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries), int.Parse);
             }
             return arr;
         }
@@ -174,12 +171,12 @@ namespace Laba_2_coop
                     }
             } 
          }
-        static void PrintMatrix(int[,] arr)
+        static void PrintJagg(int[][] arr)
         {
-            for (int i = 0; i < arr.GetLength(0); i++)
+            for (int i = 0; i < arr.Length; i++)
             {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                    Console.Write("{0} ", arr[i, j]);
+                for (int j = 0; j < arr[i].Length; j++)
+                    Console.Write("{0} ", arr[i][j]);
                 Console.WriteLine();
             }
         }
@@ -187,25 +184,25 @@ namespace Laba_2_coop
         {
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
-            int[,] matrix = new int[n, m];
-            MatrixInput(n, m, matrix);
-            PrintMatrix(InsertRows(n, m, matrix));
+            int[][] matrix = new int[n][];
+            JaggInput(n, m, matrix);
+            PrintJagg(InsertRows(n, m, matrix));
             Console.ReadKey();
                 
         }
-        static int[,] InsertRows(int n, int m, int[,] arr)
+        static int[][] InsertRows(int n, int m, int[][] arr)
         {
             int k = int.Parse(Console.ReadLine());
-            int[,] bArr = new int[n + k, m];
+            int[][] bArr = new int[n + k][];
             for (int j = 0; j < m; j++)
             {
                 for (int i = n - 1; i >= 0; i--)
                 {
-                    bArr[i + k, j] = arr[i, j];   
+                    bArr[i + k] = arr[i];   
                 }
                 for (int i = 0; i < k; i++)
                 {
-                    bArr[i, j] = arr[i, j];
+                    bArr[i] = arr[i];
                 }
             }
             return bArr;
