@@ -15,19 +15,6 @@ namespace Laba_2_coop
 
             do
             {
-<<<<<<< HEAD
-                case 1:
-                    {
-                        Block1();
-                        break;
-                    }
-                case 2:
-                    {
-                        Block2();
-                        break;
-                    }
-            }
-=======
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Write("Welcome, dear user!\nWe have blocks 1 and 2 to choose from:   ");
@@ -57,7 +44,6 @@ namespace Laba_2_coop
             } while (choise != 0);
             Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
             Console.ReadKey();
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
         }
         static void Block1()
         {
@@ -111,22 +97,6 @@ namespace Laba_2_coop
                     InputColumn(ref myArray);
                     break;
                 case 3:
-<<<<<<< HEAD
-                    {
-                        Var3b1();
-                        break;
-                    }
-                case 5:
-                    {
-                        Var5b1();
-                        break;
-                    }
-                case 6:
-                    {
-                        
-                        break;
-                    }
-=======
                     ParRandom(ref myArray);
                     Print(myArray);
                     break;
@@ -174,7 +144,6 @@ namespace Laba_2_coop
             {
                 Console.Write($"Enter array element number {i + 1}: \t");
                 myArray[i] = Int32.Parse(Console.ReadLine());
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
             }
         }
         static void InputTape(ref int[] myArray)
@@ -359,51 +328,6 @@ namespace Laba_2_coop
             }
             return bArr;
         }
-<<<<<<< HEAD
-        static void Block2()
-        {
-            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
-            {
-                case 3:
-                    {
-                        
-                        break;
-                    }
-                case 5:
-                    {
-                        Var5Block2();
-                        break;
-                    }
-                case 6:
-                    {
-                        break;
-                    }
-            }
-        }
-        static int[,] MatrixInput(int n, int m, int[,] arr)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                string[] arrElem = Console.ReadLine().Trim().Split();
-
-                for (int j = 0; j < m; j++)
-                {
-                    arr[i, j] = int.Parse(arrElem[j]);
-                }
-            }
-            return arr;
-        }
-        static void PrintMatrix(int[,] arr)
-        {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                    Console.Write("{0} ", arr[i, j]);
-                Console.WriteLine();
-            }
-        }
         static void Var5Block2()
         {
             int n = int.Parse(Console.ReadLine());
@@ -456,7 +380,5 @@ namespace Laba_2_coop
                 return mass;
             }
         }
-=======
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
     }
 }
