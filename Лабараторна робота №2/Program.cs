@@ -15,19 +15,6 @@ namespace Laba_2_coop
 
             do
             {
-<<<<<<< HEAD
-                case 1:
-                    {
-                        Block1();
-                        break;
-                    }
-                case 2:
-                    {
-                        Block2();
-                        break;
-                    }
-            }
-=======
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Black;
                 Console.Write("Welcome, dear user!\nWe have blocks 1 and 2 to choose from:   ");
@@ -39,6 +26,7 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("Block - 1 is in progress!");
+                            ReabLineOneMass();
                             Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will be Tsaryova Alyona)\n\t\t Option 6: enter number 6 (your curator will be Bezpalko Maria)\n\t\t ");
                             Block1();
                             Console.Clear();
@@ -57,7 +45,6 @@ namespace Laba_2_coop
             } while (choise != 0);
             Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
             Console.ReadKey();
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
         }
         static void Block1()
         {
@@ -71,7 +58,6 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("We are performing option 3!");
-                            ReabLineOneMass();
                             Var3b1();
                             break;
                         }
@@ -99,42 +85,26 @@ namespace Laba_2_coop
         {
             Console.BackgroundColor = ConsoleColor.Black;
             int[] myArray = new int[0];
-            Console.Clear();
-            Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
-            {
-                case 1:
-                    InputTape(ref myArray);
-                    break;
-                case 2:
-                    InputColumn(ref myArray);
-                    break;
-                case 3:
-<<<<<<< HEAD
-                    {
-                        Var3b1();
+                Console.Clear();
+                Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
+                int choise = int.Parse(Console.ReadLine());
+                switch (choise)
+                {
+                    case 1:
+                        InputTape(ref myArray);
                         break;
-                    }
-                case 5:
-                    {
-                        Var5b1();
+                    case 2:
+                        InputColumn(ref myArray);
                         break;
-                    }
-                case 6:
-                    {
-                        
+                    case 3:
+                        ParRandom(ref myArray);
+                        Print(myArray);
                         break;
-                    }
-=======
-                    ParRandom(ref myArray);
-                    Print(myArray);
-                    break;
-                case 4:
-                    GodRandom(ref myArray);
-                    Print(myArray);
-                    break;
-            }
+                    case 4:
+                        GodRandom(ref myArray);
+                        Print(myArray);
+                        break;
+                }
             Console.ReadKey();
         }
         static void ParRandom(ref int[] myArray)
@@ -174,7 +144,6 @@ namespace Laba_2_coop
             {
                 Console.Write($"Enter array element number {i + 1}: \t");
                 myArray[i] = Int32.Parse(Console.ReadLine());
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
             }
         }
         static void InputTape(ref int[] myArray)
@@ -359,104 +328,5 @@ namespace Laba_2_coop
             }
             return bArr;
         }
-<<<<<<< HEAD
-        static void Block2()
-        {
-            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
-            {
-                case 3:
-                    {
-                        
-                        break;
-                    }
-                case 5:
-                    {
-                        Var5Block2();
-                        break;
-                    }
-                case 6:
-                    {
-                        break;
-                    }
-            }
-        }
-        static int[,] MatrixInput(int n, int m, int[,] arr)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                string[] arrElem = Console.ReadLine().Trim().Split();
-
-                for (int j = 0; j < m; j++)
-                {
-                    arr[i, j] = int.Parse(arrElem[j]);
-                }
-            }
-            return arr;
-        }
-        static void PrintMatrix(int[,] arr)
-        {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                    Console.Write("{0} ", arr[i, j]);
-                Console.WriteLine();
-            }
-        }
-        static void Var5Block2()
-        {
-            int n = int.Parse(Console.ReadLine());
-            int[][] mass = new int[n][];
-            ZubMas(mass,n);
-            PrintZub(Deleter(mass, n));
-            Console.ReadKey();
-        }
-        static int[][] ZubMas(int[][] mass, int n)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
-                mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
-            }
-            return mass;
-        }
-        static void PrintZub(int[][] mass)
-        {
-            for (int i = 0; i < mass.Length; i++)
-            {
-                for (int j = 0; j < mass[i].Length; j++)
-                {
-                    Console.Write("{0} ", mass[i][j]);
-                }
-                Console.WriteLine();
-            }
-        }
-        static int[][] Deleter(int[][] mass, int n) 
-        {
-            int k1 = int.Parse(Console.ReadLine());
-            int k2 = int.Parse(Console.ReadLine());
-            int v = k2 - k1;
-            int[][] b = new int[n - v][];
-            if (k1 >= 0 && k2 < n)
-            {
-                for (int i = 0; i < k1; i++)
-                {
-                    b[i] = mass[i];
-                }
-                for (int i = k2; i < mass.Length; i++)
-                {
-                    b[i - v] = mass[i];
-                }
-                return b;
-            }
-            else 
-            {
-                Console.WriteLine("Такого діапазону не існує");
-                return mass;
-            }
-        }
-=======
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
     }
 }
