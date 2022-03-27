@@ -57,7 +57,6 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("We are performing option 3!");
-                            ReabLineOneMass();
                             Var3b1();
                             break;
                         }
@@ -65,7 +64,6 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.WriteLine("We are performing option 5!");
-                            ReabLineOneMass();
                             Var5b1();
                             break;
                         }
@@ -74,17 +72,16 @@ namespace Laba_2_coop
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.WriteLine("We are performing option 6!");
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
-                            ReabLineOneMass();
                             break;
                         }
                 }
             } while (choise != 0);
         }
         //Методи введеня одновимірного масиву
-        static void ReabLineOneMass()
+        static void ReabLineOneMass(ref int[] myArray)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            int[] myArray = new int[0];
+            
             Console.Clear();
             Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
             int choise = int.Parse(Console.ReadLine());
@@ -105,7 +102,7 @@ namespace Laba_2_coop
                     Print(myArray);
                     break;
             }
-            Console.ReadKey();
+            //Console.ReadKey();
         }
         static void ParRandom(ref int[] myArray)
         {
@@ -160,36 +157,14 @@ namespace Laba_2_coop
         //Блок 1: Варіант 3.
         static void Var3b1()
         {
+            Console.Write("Введiть кiлькiсть елементiв: ");
             int num = int.Parse(Console.ReadLine());
-            Print(Block1v3(num, HandmadeArraySpaces(num)));
+            int[] arr = new int[num];
+            ReabLineOneMass(ref arr);
+            Print(Block1v3(num, arr));
             Console.ReadKey();
         }
-        static void RandomFill(int n, int[] myArray)//Двохвимірний
-        {
-
-            Console.WriteLine("Enter the min value of the array:\t");
-            int minValue = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the max value of the array:\t");
-            int maxValue = int.Parse(Console.ReadLine());
-            Random ran = new Random();
-
-            Console.WriteLine("Your array:");
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                myArray[i] = ran.Next(minValue, maxValue);
-                Console.Write(myArray[i] + " ");
-            }
-
-        }
-        static void HandmadeEnter(int[] myArray)
-        {
-
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                Console.WriteLine("Enter the number on {i} index:\t");
-                myArray[i] = int.Parse(Console.ReadLine());
-            }
-        }
+      
         static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
@@ -209,6 +184,7 @@ namespace Laba_2_coop
         }
         static int[] Block1v3(int num, int[] arr)
         {
+            Console.Write("Введiть число, яке потрiбно знищити: ");
             int key = int.Parse(Console.ReadLine());
             int keyInd = Array.IndexOf(arr, key);
             if (arr == null || keyInd < -1 || keyInd >= arr.Length)
@@ -293,137 +269,6 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
-<<<<<<< HEAD
-        static void Var3b1()
-        {
-            int num = int.Parse(Console.ReadLine());
-            Print(Block1v3(num, HandmadeArraySpaces(num)));
-            Console.ReadKey();
-        }
-        //Block1
-        static void Randomfill(int n, int[] myArray)
-        {
-
-            Console.WriteLine("Enter the min value of the array:\t");
-            int minValue = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter the max value of the array:\t");
-            int maxValue = int.Parse(Console.ReadLine());
-            Random ran = new Random();
-
-            Console.WriteLine("Your array:");
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                myArray[i] = ran.Next(minValue, maxValue);
-                Console.Write(myArray[i] + " ");
-            }
-
-        }
-        static void HandmadeEnter(int[] myArray)
-        {
-
-            for (int i = 0; i < myArray.Length; i++)
-            {
-                Console.WriteLine("Enter the number on {i} index:\t");
-                myArray[i] = int.Parse(Console.ReadLine());
-            }
-        }
-    
-        static int[] HandmadeArraySpaces(int n)
-        {
-            string[] spArr = Console.ReadLine().Trim().Split();
-            int[] arr = new int[n];
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = int.Parse(spArr[i]);
-            }
-            return arr;
-        }
-        static void Print(int[] arr)
-        {
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-        }
-        static int[] Block1v3(int num, int[] arr)
-        {
-            int key = int.Parse(Console.ReadLine());
-            int keyInd = Array.IndexOf(arr, key);
-            if (arr == null || keyInd < -1 || keyInd >= arr.Length)
-            {
-                Console.WriteLine("Видалити неможливо, " +
-                "iндекс поза допустимими межами");
-            }
-            else if (keyInd == -1)
-                Console.WriteLine("No this num");
-            else
-                Erase(ref arr, keyInd);
-            return arr;
-        }
-
-        static int[] Erase(ref int[] arr, int keyInd)
-        {
-            for (int i = keyInd + 1; i < arr.Length; i++)
-            {
-                arr[i - 1] = arr[i];
-            }
-            Array.Resize(ref arr, arr.Length - 1);
-            return arr;
-        }
-        static int[,] MatrixInput(int n, int m, int[,] arr)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                string[] arrElem = Console.ReadLine().Trim().Split();
-
-                for (int j = 0; j < m; j++)
-            {
-                    arr[i,j] = int.Parse(arrElem[j]);
-                }
-            }
-            return arr;
-        }
-        static void Var5b1()
-        {
-            int num = int.Parse(Console.ReadLine());
-            Print(Block1v5(num, HandmadeArraySpaces(num)));
-            Console.ReadKey();
-        }
-        static int[] Block1v5(int num, int[] array) 
-        {
-            for (int i = array.Length - 1; i >= 0; i--)
-            {
-                if (i % 2 == 0)
-                {
-                    Erase(ref array, i);
-                }
-            }
-            return array;
-        }
-        static void Block2()
-        {
-            Console.WriteLine("Оберiть варiант: 3, 5 або 6");
-            int choise = int.Parse(Console.ReadLine());
-            switch (choise)
-            {
-                case 3:
-                    {
-                        Var3Block2();
-                        break;
-                    }
-                case 5:
-                    {
-                        Var5Block2();
-                        break;
-                    }
-                case 6:
-                    {
-                        break;
-                    }
-            } 
-        }
-=======
->>>>>>> 7a7fdd4b9b53582cb20ae9acd06e5afe6eabfe9b
         static void PrintMatrix(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
@@ -440,27 +285,27 @@ namespace Laba_2_coop
             int[,] matrix = new int[n, m];
             MatrixInput(n, m, matrix);
             PrintMatrix(InsertRows(n, m, matrix));
+            Console.ReadKey();
+                
 
         }
         static int[,] InsertRows(int n, int m, int[,] arr)
         {
             int k = int.Parse(Console.ReadLine());
-            int[,] bArr = new int[n, m + k];
-            for (int i = 0; i < n; i++)
+            int[,] bArr = new int[n + k, m];
+            for (int j = 0; j < m; j++)
             {
-                for (int j = m - 1; j >= 0; j--)
+                for (int i = n - 1; i >= 0; i--)
                 {
-                    bArr[i, j + k] = arr[i, j];
+                    bArr[i, j + k] = arr[i, j];   
                 }
-                for (int j = 0; j < k; j++)
+                for (int i = 0; i < k; i++)
                 {
                     bArr[i, j] = arr[i, j];
                 }
             }
             return bArr;
         }
-    
-       
         static void Var5Block2()
         {
             int n = int.Parse(Console.ReadLine());
