@@ -207,22 +207,29 @@ namespace Laba_2_coop
                 Console.WriteLine();
             }
         }
-        static int[][] Deleter(int[][] mass, int n)
+        static int[][] Deleter(int[][] mass, int n) 
         {
             int k1 = int.Parse(Console.ReadLine());
             int k2 = int.Parse(Console.ReadLine());
             int v = k2 - k1;
-            int[][] b = new int[n-v][];
-            for (int i = 0; i < k1; i++)
+            int[][] b = new int[n - v][];
+            if (k1 >= 0 && k2 < n)
             {
-                b[i]=mass[i];
-
+                for (int i = 0; i < k1; i++)
+                {
+                    b[i] = mass[i];
+                }
+                for (int i = k2; i < mass.Length; i++)
+                {
+                    b[i - v] = mass[i];
+                }
+                return b;
             }
-            for (int i = k2; i < mass.Length; i++)
+            else 
             {
-                b[i-v] = mass[i];
+                Console.WriteLine("Такого діапазону не існує");
+                return mass;
             }
-            return b;
         }
     }
     
