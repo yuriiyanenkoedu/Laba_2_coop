@@ -101,14 +101,15 @@ namespace Laba_2_coop
 
         }
         static void HandmadeEnter(int[] myArray)
-                {
+        {
 
             for (int i = 0; i < myArray.Length; i++)
             {
                 Console.WriteLine("Enter the number on {i} index:\t");
                 myArray[i] = int.Parse(Console.ReadLine());
-                }
             }
+        }
+    
         static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
@@ -194,6 +195,7 @@ namespace Laba_2_coop
                     }
                 case 5:
                     {
+                        Var5Block2();
                         break;
                     }
                 case 6:
@@ -201,7 +203,7 @@ namespace Laba_2_coop
                         break;
                     }
             } 
-         }
+        }
         static void PrintMatrix(int[,] arr)
         {
             for (int i = 0; i < arr.GetLength(0); i++)
@@ -237,5 +239,53 @@ namespace Laba_2_coop
             }
             return bArr;
         }
+    
+       
+        static void Var5Block2()
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[][] mass = new int[n][];
+            ZubMas(mass,n);
+            PrintZub(Deleter(mass, n));
+            Console.ReadKey();
+        }
+        static int[][] ZubMas(int[][] mass, int n)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
+                mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
+            }
+            return mass;
+        }
+        static void PrintZub(int[][] mass)
+        {
+            for (int i = 0; i < mass.Length; i++)
+            {
+                for (int j = 0; j < mass[i].Length; j++)
+                {
+                    Console.Write("{0} ", mass[i][j]);
+                }
+                Console.WriteLine();
+            }
+        }
+        static int[][] Deleter(int[][] mass, int n)
+        {
+            int k1 = int.Parse(Console.ReadLine());
+            int k2 = int.Parse(Console.ReadLine());
+            int v = k2 - k1;
+            int[][] b = new int[n-v][];
+            for (int i = 0; i < k1; i++)
+            {
+                b[i]=mass[i];
+
+            }
+            for (int i = k2; i < mass.Length; i++)
+            {
+                b[i-v] = mass[i];
+            }
+            return b;
+        }
     }
+    
 }
