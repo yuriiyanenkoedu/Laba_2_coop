@@ -250,14 +250,14 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("We are performing option 3!");
-                            Var3b1();
+                            Var3Block2();
                             break;
                         }
                     case 5:
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
                             Console.WriteLine("We are performing option 5!");
-                            Var5b1();
+                            Var5Block2();
                             break;
                         }
                     case 6:
