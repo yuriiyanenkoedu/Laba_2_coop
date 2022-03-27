@@ -190,19 +190,20 @@ namespace Laba_2_coop
             int[,] matrix = new int[n, m];
             MatrixInput(n, m, matrix);
             PrintMatrix(InsertRows(n, m, matrix));
+            Console.ReadKey();
                 
         }
         static int[,] InsertRows(int n, int m, int[,] arr)
         {
             int k = int.Parse(Console.ReadLine());
-            int[,] bArr = new int[n, m + k];
-            for (int i = 0; i < n; i++)
+            int[,] bArr = new int[n + k, m];
+            for (int j = 0; j < m; j++)
             {
-                for (int j = m - 1; j >= 0; j--)
+                for (int i = n - 1; i >= 0; i--)
                 {
-                    bArr[i, j + k] = arr[i, j];   
+                    bArr[i + k, j] = arr[i, j];   
                 }
-                for (int j = 0; j < k; j++)
+                for (int i = 0; i < k; i++)
                 {
                     bArr[i, j] = arr[i, j];
                 }
