@@ -1,0 +1,2 @@
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Лабараторна робота №2\obj\Debug\Лабараторна робота №2.csproj.AssemblyReference.cache
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Лабараторна робота №2\obj\Debug\Лабараторна робота №2.csproj.CoreCompileInputs.cache
