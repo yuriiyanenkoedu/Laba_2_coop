@@ -12,7 +12,6 @@ namespace Laba_2_coop
         {
             Console.BackgroundColor = ConsoleColor.DarkYellow;
             int choise;
-
             do
             {
                 Console.Clear();
@@ -76,6 +75,7 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
+
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
@@ -83,7 +83,7 @@ namespace Laba_2_coop
             Console.ReadKey();
         }
         //Block1
-        static void Randomfill(int n, int[] myArray)
+        static void RandomFill(int n, int[] myArray)//Двохвимірний
         {
 
             Console.WriteLine("Enter the min value of the array:\t");
@@ -109,7 +109,6 @@ namespace Laba_2_coop
                 myArray[i] = int.Parse(Console.ReadLine());
             }
         }
-    
         static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
@@ -159,8 +158,8 @@ namespace Laba_2_coop
                 string[] arrElem = Console.ReadLine().Trim().Split();
 
                 for (int j = 0; j < m; j++)
-            {
-                    arr[i,j] = int.Parse(arrElem[j]);
+                {
+                    arr[i, j] = int.Parse(arrElem[j]);
                 }
             }
             return arr;
@@ -171,7 +170,7 @@ namespace Laba_2_coop
             Print(Block1v5(num, HandmadeArraySpaces(num)));
             Console.ReadKey();
         }
-        static int[] Block1v5(int num, int[] array) 
+        static int[] Block1v5(int num, int[] array)
         {
             for (int i = array.Length - 1; i >= 0; i--)
             {
@@ -195,14 +194,13 @@ namespace Laba_2_coop
                     }
                 case 5:
                     {
-                        Var5Block2();
                         break;
                     }
                 case 6:
                     {
                         break;
                     }
-            } 
+            }
         }
         static void PrintMatrix(int[,] arr)
         {
@@ -220,7 +218,7 @@ namespace Laba_2_coop
             int[,] matrix = new int[n, m];
             MatrixInput(n, m, matrix);
             PrintMatrix(InsertRows(n, m, matrix));
-                
+
         }
         static int[,] InsertRows(int n, int m, int[,] arr)
         {
@@ -230,7 +228,7 @@ namespace Laba_2_coop
             {
                 for (int j = m - 1; j >= 0; j--)
                 {
-                    bArr[i, j + k] = arr[i, j];   
+                    bArr[i, j + k] = arr[i, j];
                 }
                 for (int j = 0; j < k; j++)
                 {
@@ -239,53 +237,6 @@ namespace Laba_2_coop
             }
             return bArr;
         }
-    
-       
-        static void Var5Block2()
-        {
-            int n = int.Parse(Console.ReadLine());
-            int[][] mass = new int[n][];
-            ZubMas(mass,n);
-            PrintZub(Deleter(mass, n));
-            Console.ReadKey();
-        }
-        static int[][] ZubMas(int[][] mass, int n)
-        {
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
-                mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
-            }
-            return mass;
-        }
-        static void PrintZub(int[][] mass)
-        {
-            for (int i = 0; i < mass.Length; i++)
-            {
-                for (int j = 0; j < mass[i].Length; j++)
-                {
-                    Console.Write("{0} ", mass[i][j]);
-                }
-                Console.WriteLine();
-            }
-        }
-        static int[][] Deleter(int[][] mass, int n)
-        {
-            int k1 = int.Parse(Console.ReadLine());
-            int k2 = int.Parse(Console.ReadLine());
-            int v = k2 - k1;
-            int[][] b = new int[n-v][];
-            for (int i = 0; i < k1; i++)
-            {
-                b[i]=mass[i];
-
-            }
-            for (int i = k2; i < mass.Length; i++)
-            {
-                b[i-v] = mass[i];
-            }
-            return b;
-        }
     }
-    
 }
+
