@@ -87,7 +87,7 @@ namespace Laba_2_coop
             do
             {
                 Console.Clear();
-                Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)! ");
+                Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!\n\t 0: - Exit the program :( ");
                 choise = int.Parse(Console.ReadLine());
                 switch (choise)
                 {
@@ -111,23 +111,23 @@ namespace Laba_2_coop
                 }
                 Console.ReadKey();
             } while (choise != 0);
-            Console.WriteLine("Дорогий тестеровщик ви вийшли з програми. Пока - пока !    :)");
+            Console.WriteLine("Dear user, you have left the program. So far - so far! :)");
             Console.ReadKey();
         }
         static void ParRandom(ref int[] myArray)
         {
-            Console.Write("Введіть, будь ласка, кількість елементів масива:\t");
+            Console.Write("Please enter the number of elements in the array: \t");
             int elemetCount = Int32.Parse(Console.ReadLine());
             myArray = new int[elemetCount];
             Random gacha = new Random();
-            Console.Write("Введіть мінімальний параметер: ");
+            Console.Write("Enter the minimum parameter:");
             int par = int.Parse(Console.ReadLine());
-            Console.Write("Введіть максимальний параметер: ");
+            Console.Write("Enter the maximum parameter:");
             int par2 = int.Parse(Console.ReadLine());
             while (par > par2)
             {
-                Console.WriteLine("Шановний тестеровщи, буль ласка, не ламайте програму!");
-                Console.WriteLine("Введіть максимальний параметер: ");
+                Console.WriteLine("Dear user, please do not break the program!");
+                Console.WriteLine("Enter the maximum parameter:");
                 par2 = int.Parse(Console.ReadLine());
             }
             for (int i = 0; i < myArray.Length; i++)
@@ -135,7 +135,7 @@ namespace Laba_2_coop
         }
         static void GodRandom(ref int[] myArray)
         {
-            Console.Write("Введіть, будь ласка, кількість елементів масива:\t");
+            Console.Write("Please enter the number of elements in the array: \t");
             int elemetCount = Int32.Parse(Console.ReadLine());
             myArray = new int[elemetCount];
             Random gacha = new Random();
@@ -144,12 +144,12 @@ namespace Laba_2_coop
         }
         static void InputColumn(ref int[] myArray)
         {
-            Console.Write("Привіт тестеровщик ! Попросимо вас не водити менше двух елементів, а то програма зламається.\nБажаю успіхів в тестуванні програми.\nВведіть, будь ласка, кількість елементів масива:\t");
+            Console.Write("Please enter the number of elements in the array: \t");
             int elemetCount = Int32.Parse(Console.ReadLine());
             myArray = new int[elemetCount];
             for (int i = 0; i < myArray.Length; i++)
             {
-                Console.Write($"Введіть елемент масиву під номером {i + 1}:\t");
+                Console.Write($"Enter array element number {i + 1}: \t");
                 myArray[i] = Int32.Parse(Console.ReadLine());
             }
         }
@@ -163,6 +163,8 @@ namespace Laba_2_coop
                 myArray[i] = int.Parse(row[i]);
             }
         }
+
+
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
