@@ -26,6 +26,7 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("Block - 1 is in progress!");
+                            ReabLineOneMass();
                             Console.Write("Dear user, choose the option from the following\n\t\t Option 3: enter number 3 (your curator will be Yanenko Yuriy)\n\t\t Option 5: enter number 5 (your curator will be Tsaryova Alyona)\n\t\t Option 6: enter number 6 (your curator will be Bezpalko Maria)\n\t\t ");
                             Block1();
                             Console.Clear();
@@ -57,7 +58,6 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
                             Console.WriteLine("We are performing option 3!");
-                            ReabLineOneMass();
                             Var3b1();
                             break;
                         }
@@ -73,6 +73,7 @@ namespace Laba_2_coop
                         {
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.WriteLine("We are performing option 6!");
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
                             ReabLineOneMass();
                             break;
                         }
@@ -82,13 +83,11 @@ namespace Laba_2_coop
         //Методи введеня одновимірного масиву
         static void ReabLineOneMass()
         {
+            Console.BackgroundColor = ConsoleColor.Black;
             int[] myArray = new int[0];
-            int choise;
-            do
-            {
                 Console.Clear();
-                Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!\n\t 0: - Exit the program :( ");
-                choise = int.Parse(Console.ReadLine());
+                Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
+                int choise = int.Parse(Console.ReadLine());
                 switch (choise)
                 {
                     case 1:
@@ -105,13 +104,7 @@ namespace Laba_2_coop
                         GodRandom(ref myArray);
                         Print(myArray);
                         break;
-                    case 0:
-                        Console.Clear();
-                        break;
                 }
-                Console.ReadKey();
-            } while (choise != 0);
-            Console.WriteLine("Dear user, you have left the program. So far - so far! :)");
             Console.ReadKey();
         }
         static void ParRandom(ref int[] myArray)
@@ -163,15 +156,14 @@ namespace Laba_2_coop
                 myArray[i] = int.Parse(row[i]);
             }
         }
-
-
+        //Кінець
+        //Блок 1: Варіант 3.
         static void Var3b1()
         {
             int num = int.Parse(Console.ReadLine());
             Print(Block1v3(num, HandmadeArraySpaces(num)));
             Console.ReadKey();
         }
-        //Block1
         static void RandomFill(int n, int[] myArray)//Двохвимірний
         {
 
@@ -201,18 +193,18 @@ namespace Laba_2_coop
         static int[] HandmadeArraySpaces(int n)
         {
             string[] spArr = Console.ReadLine().Trim().Split();
-            int[] arr = new int[n];
-            for (int i = 0; i < arr.Length; i++)
+            int[] myArray = new int[n];
+            for (int i = 0; i < myArray.Length; i++)
             {
-                arr[i] = int.Parse(spArr[i]);
+                myArray[i] = int.Parse(spArr[i]);
             }
-            return arr;
+            return myArray;
         }
-        static void Print(int[] arr)
+        static void Print(int[] myArray)
         {
-            for (int i = 0; i < arr.GetLength(0); i++)
+            for (int i = 0; i < myArray.GetLength(0); i++)
             {
-                Console.Write(arr[i] + " ");
+                Console.Write(myArray[i] + " ");
             }
         }
         static int[] Block1v3(int num, int[] arr)
