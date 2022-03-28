@@ -250,6 +250,25 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
+        static void TypeOfJaggArr(ref int[][] arr, int n, int m)
+        {
+            Console.WriteLine("Have are you want to input the array?\n1 - arbaiten your hand, 2 - random!");
+            int choise = int.Parse(Console.ReadLine());
+            switch(choise)
+            {
+                case 1:
+                    {
+                        ZubMas(arr, n, m);
+                        break;
+                    }
+                case 2:
+                    {
+                        RandJagg(ref arr, n, m);
+                        PrintZub(arr);
+                        break;
+                    }
+            }
+        }
         static void Var3Block2()
         {
             Console.WriteLine("Input amount of rows");
@@ -257,12 +276,13 @@ namespace Laba_2_coop
             Console.WriteLine("Input amount of laws");
             int m = int.Parse(Console.ReadLine());
             int[][] matrix = new int[n][];
-            ZubMas(matrix, n, m);
+            TypeOfJaggArr(ref matrix, n, m);
             PrintZub(InsertRows(n, matrix));
             Console.ReadKey();   
         }
         static int[][] InsertRows(int n, int[][] arr)
         {
+            Console.WriteLine("How many rows you are want add?");
             int k = int.Parse(Console.ReadLine());
             int[][] bArr = new int[n + k][];
             
@@ -282,7 +302,7 @@ namespace Laba_2_coop
             int n = int.Parse(Console.ReadLine());
             int m = int.Parse(Console.ReadLine());
             int[][] mass = new int[n][];
-            ZubMas(mass, n, m);
+            TypeOfJaggArr(ref mass, n, m);
             PrintZub(Deleter(mass, n));
             Console.ReadKey();
         }
@@ -305,7 +325,9 @@ namespace Laba_2_coop
         static void RandJagg(ref int[][] arr, int n, int m)
         {
             Random rnd = new Random();
+            Console.WriteLine("Write the min number of diapasone");
             int min = int.Parse(Console.ReadLine());
+            Console.WriteLine("Write the max number of diapasone");
             int max = int.Parse(Console.ReadLine());
             for (int i = 0; i < arr.Length; i++)
             {
