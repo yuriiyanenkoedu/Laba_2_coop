@@ -76,16 +76,17 @@ namespace Laba_2_coop
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.WriteLine("We are performing option 6!");
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Var6b1();
                             break;
                         }
                 }
             } while (choise != 0);
         }
         //Методи введеня одновимірного масиву
-        static void ReabLineOneMass(ref int[] myArray)
+        static void ReabLineOneMass(ref int[] myArray, int n)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            
+
             Console.Clear();
             Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
             int choise = int.Parse(Console.ReadLine());
@@ -95,23 +96,21 @@ namespace Laba_2_coop
                     InputTape(ref myArray);
                     break;
                 case 2:
-                    InputColumn(ref myArray);
+                    InputColumn(ref myArray, n);
                     break;
                 case 3:
-                    ParRandom(ref myArray);
+                    ParRandom(ref myArray, n);
                     Print(myArray);
                     break;
                 case 4:
-                    GodRandom(ref myArray);
+                    GodRandom(ref myArray, n);
                     Print(myArray);
                     break;
             }
             //Console.ReadKey();
         }
-        static void ParRandom(ref int[] myArray)
+        static void ParRandom(ref int[] myArray, int elemetCount)
         {
-            Console.Write("Please enter the number of elements in the array: \t");
-            int elemetCount = Int32.Parse(Console.ReadLine());
             myArray = new int[elemetCount];
             Random gacha = new Random();
             Console.Write("Enter the minimum parameter:");
@@ -127,19 +126,15 @@ namespace Laba_2_coop
             for (int i = 0; i < myArray.Length; i++)
                 myArray[i] = gacha.Next(par, par2);
         }
-        static void GodRandom(ref int[] myArray)
+        static void GodRandom(ref int[] myArray, int elemetCount)
         {
-            Console.Write("Please enter the number of elements in the array: \t");
-            int elemetCount = Int32.Parse(Console.ReadLine());
             myArray = new int[elemetCount];
             Random gacha = new Random();
             for (int i = 0; i < myArray.Length; i++)
                 myArray[i] = gacha.Next(-666, 666);
         }
-        static void InputColumn(ref int[] myArray)
-        {
-            Console.Write("Please enter the number of elements in the array: \t");
-            int elemetCount = Int32.Parse(Console.ReadLine());
+        static void InputColumn(ref int[] myArray, int elemetCount)
+        {            
             myArray = new int[elemetCount];
             for (int i = 0; i < myArray.Length; i++)
             {
@@ -149,7 +144,7 @@ namespace Laba_2_coop
         }
         static void InputTape(ref int[] myArray)
         {
-            Console.Write("Введіть елементи масиву:");
+            Console.Write("Enter the array:");
             string[] row = Console.ReadLine().Split(' ');
             myArray = new int[row.Length];
             for (int i = 0; i < row.Length; i++)
@@ -161,11 +156,11 @@ namespace Laba_2_coop
         //Блок 1: Варіант 3.
         static void Var3b1()
         {
-            Console.Write("Введiть кiлькiсть елементiв: ");
+            Console.Write("Enter the length of array: ");
             int num = int.Parse(Console.ReadLine());
             int[] arr = new int[num];
-            ReabLineOneMass(ref arr);
-            Print(Block1v3(num, arr));
+            ReabLineOneMass(ref arr, num);
+            Print(Block1v3(arr));
         }
         static void Print(int[] myArray)
         {
@@ -174,23 +169,22 @@ namespace Laba_2_coop
                 Console.Write(myArray[i] + " ");
             }
         }
-        static int[] Block1v3(int num, int[] arr)
+        static int[] Block1v3(int[] arr)
         {
-            Console.Write("Введiть число, яке потрiбно знищити: ");
+            Console.Write("Enter the number what are you want to destroy: ");
             int key = int.Parse(Console.ReadLine());
             int keyInd = Array.IndexOf(arr, key);
             if (arr == null || keyInd < -1 || keyInd >= arr.Length)
             {
-                Console.WriteLine("Видалити неможливо, " +
-                "iндекс поза допустимими межами");
+                Console.WriteLine("Oh, we can't do smth whith that");
             }
             else if (keyInd == -1)
-                Console.WriteLine("No this num");
+                Console.WriteLine("No, this num das not exist");
             else
                 Erase(ref arr, keyInd);
             return arr;
         }
-        //rtcyvubino
+        //Блок 1: Варіант 5.
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -200,12 +194,13 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-        
         static void Var5b1()
         {
+            Console.WriteLine("Enter the length of the array");
             int num = int.Parse(Console.ReadLine());
             int[] arr = new int[num];
-            ReabLineOneMass(ref arr);
+            ReabLineOneMass(ref arr, num);
+            Console.WriteLine("Your new array");
             Print(Block1v5(arr));
         }
         static int[] Block1v5(int[] array)
@@ -219,6 +214,32 @@ namespace Laba_2_coop
             }
             return array;
         }
+        //Блок 1: Варіант 6.
+        static void Var6b1()
+        {
+            Console.Write("Enter the length of array: ");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            ReabLineOneMass(ref arr, num);
+            Block1v6(arr);
+        }
+        static int[] Block1v6(int[] arr)
+        {
+            int[] b = new int[arr.Length];
+
+            int cnt = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i]%2==0 || arr[i] == 0)
+                {
+                    b[cnt] = arr[i];
+                    cnt++;
+                }
+            }
+            Array.Resize(ref b, cnt);
+            Print(b);
+            return b;
+        }
         static void Block2()
         {
             int choise;
@@ -230,14 +251,14 @@ namespace Laba_2_coop
                     case 3:
                         {
                             Console.ForegroundColor = ConsoleColor.DarkBlue;
-                            Console.WriteLine("We are performing option 3!");
+                            //Console.WriteLine("We are performing option 3!");
                             Var3Block2();
                             break;
                         }
                     case 5:
                         {
                             Console.ForegroundColor = ConsoleColor.Magenta;
-                            Console.WriteLine("We are performing option 5!");
+                            //Console.WriteLine("We are performing option 5!");
                             Var5Block2();
                             break;
                         }
@@ -250,39 +271,64 @@ namespace Laba_2_coop
                 }
             } while (choise != 0);
         }
+        static void TypeOfJaggArr(ref int[][] arr, int n, int m)
+        {
+            Console.WriteLine("How are you want to input the array?\n1 - arbaiten your hand, 2 - random!");
+            int choise = int.Parse(Console.ReadLine());
+            switch(choise)
+            {
+                case 1:
+                    {
+                        ZubMas(arr, n, m);
+                        break;
+                    }
+                case 2:
+                    {
+                        RandJagg(ref arr, n, m);
+                        PrintZub(arr);
+                        break;
+                    }
+            }
+        }
         static void Var3Block2()
         {
-            Console.WriteLine("Input amount of rows");
+            Console.WriteLine("Enter amount of rows");
             int n = int.Parse(Console.ReadLine());
-            Console.WriteLine("Input amount of laws");
+            Console.WriteLine("Enter amount of laws");
             int m = int.Parse(Console.ReadLine());
             int[][] matrix = new int[n][];
-            ZubMas(matrix, n, m);
+            TypeOfJaggArr(ref matrix, n, m);
             PrintZub(InsertRows(n, matrix));
             Console.ReadKey();   
         }
         static int[][] InsertRows(int n, int[][] arr)
         {
+            Console.WriteLine("How many rows you are want add?");
             int k = int.Parse(Console.ReadLine());
-            int[][] bArr = new int[n + k][];
-            
+            if (k < 0)
+            {
+                Console.WriteLine("Why are you doing this? I can't work with this\ntake your array back");
+                return arr;
+            }
+            else
+            {
+                Array.Resize(ref arr, arr.Length + k);
+
                 for (int i = n - 1; i >= 0; i--)
                 {
-                    bArr[i + k] = arr[i];   
+                    arr[i + k] = arr[i];
                 }
-                for (int i = 0; i < k; i++)
-                {
-                    bArr[i] = arr[i];
-                }
-            
-            return bArr;
+                return arr;
+            }
         }
         static void Var5Block2()
         {
+            Console.WriteLine("Enter the amount of rows");
             int n = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the amount of laws");
             int m = int.Parse(Console.ReadLine());
             int[][] mass = new int[n][];
-            ZubMas(mass, n, m);
+            TypeOfJaggArr(ref mass, n, m);
             PrintZub(Deleter(mass, n));
             Console.ReadKey();
         }
@@ -291,10 +337,8 @@ namespace Laba_2_coop
             for (int i = 0; i < n; i++)
             {
                 mass[i] = new int[m];
-                Console.WriteLine("Вводьте елементи {0}-го рядка" + "(всi в один рядок через пробiли)", i);
+                Console.WriteLine("Enter elements of the {0} raw" + "(all throught spaces)", i);
                 string[] arrinput = Console.ReadLine().Trim().Split();
-               
-                //mass[i] = Array.ConvertAll(Console.ReadLine().Split(" ".ToCharArray(),StringSplitOptions.RemoveEmptyEntries),int.Parse);
                 for (int j = 0; j < m; j++)
                 {
                     mass[i][j] = int.Parse(arrinput[j]);
@@ -305,7 +349,9 @@ namespace Laba_2_coop
         static void RandJagg(ref int[][] arr, int n, int m)
         {
             Random rnd = new Random();
+            Console.WriteLine("Write the min number of diapasone");
             int min = int.Parse(Console.ReadLine());
+            Console.WriteLine("Write the max number of diapasone");
             int max = int.Parse(Console.ReadLine());
             for (int i = 0; i < arr.Length; i++)
             {
@@ -329,20 +375,31 @@ namespace Laba_2_coop
         }
         static int[][] Deleter(int[][] mass, int n)
         {
+            Console.WriteLine("Enter the index of raw, what are you want to destroy first");
             int k1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the index of raw, what are you want to destriy last");
             int k2 = int.Parse(Console.ReadLine());
-            int v = k2 - k1;
-            int[][] b = new int[n-v][];
-            for (int i = 0; i < k1; i++)
+            if (k1 > k2 || k1 < 0 || k2 > mass.Length)
             {
-                b[i]=mass[i];
+                Console.WriteLine("What are you doing?");
+                return mass;
+            }
+            else
+            {
+                int v = k2 - k1;
+                int[][] b = new int[n - v][];
+                for (int i = 0; i < k1; i++)
+                {
+                    b[i] = mass[i];
 
+                }
+                for (int i = k2; i < mass.Length; i++)
+                {
+                    b[i - v] = mass[i];
+                }
+                return b;
             }
-            for (int i = k2; i < mass.Length; i++)
-            {
-                b[i-v] = mass[i];
-            }
-            return b;
+           
         }
     }
     

@@ -15,3 +15,10 @@ D:\Laba_2_coop-master\Laba_2_coop\obj\Debug\Laba_2_coop.csproj.CoreCompileInputs
 D:\Laba_2_coop-master\Laba_2_coop\obj\Debug\Laba_2_coop.exe
 D:\Laba_2_coop-master\Laba_2_coop\obj\Debug\Laba_2_coop.pdb
 >>>>>>> 51e84a105e76d62109f5e692e265425f7c43c7ba
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\bin\Debug\Laba_2_coop.exe.config
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\bin\Debug\Laba_2_coop.exe
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\bin\Debug\Laba_2_coop.pdb
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\obj\Debug\Laba_2_coop.csproj.AssemblyReference.cache
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\obj\Debug\Laba_2_coop.csproj.CoreCompileInputs.cache
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\obj\Debug\Laba_2_coop.exe
+C:\Users\Maria\Desktop\C#\Лабораторні\Лабараторна робота №2\Laba_2_coop\obj\Debug\Laba_2_coop.pdb
