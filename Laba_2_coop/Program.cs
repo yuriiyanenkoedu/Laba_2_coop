@@ -10,7 +10,7 @@ namespace Laba_2_coop
     {
         static void Main(string[] args)
         {
-            Console.BackgroundColor = ConsoleColor.DarkYellow;
+            Console.BackgroundColor = ConsoleColor.White;
             int choise;
 
             do
@@ -73,9 +73,9 @@ namespace Laba_2_coop
                         }
                     case 6:
                         {
-                            Console.ForegroundColor = ConsoleColor.Black;
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
                             Console.WriteLine("We are performing option 6!");
-                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            //Console.ForegroundColor = ConsoleColor.;
                             Var6b1();
                             break;
                         }
@@ -168,6 +168,7 @@ namespace Laba_2_coop
             {
                 Console.Write(myArray[i] + " ");
             }
+            Console.WriteLine();
         }
         static int[] Block1v3(int[] arr)
         {
@@ -222,7 +223,9 @@ namespace Laba_2_coop
             int num = int.Parse(Console.ReadLine());
             int[] arr = new int[num];
             ReabLineOneMass(ref arr, num);
-            Block1v6(arr);
+            Console.WriteLine("Your new array:");
+            Print(Block1v6(arr));
+
         }
         static int[] Block1v6(int[] arr)
         {
@@ -237,6 +240,7 @@ namespace Laba_2_coop
                     cnt++;
                 }
             }
+<<<<<<< HEAD
             if (cnt == arr.Length)
             {
                 Console.WriteLine("There were no odd numbers in the array");
@@ -251,6 +255,9 @@ namespace Laba_2_coop
                 Array.Resize(ref b, cnt);
                 Print(b);
             }
+=======
+            Array.Resize(ref b, cnt);
+>>>>>>> 5516f3cebeb26fe6b7aba0c59d5a04b517f013b0
             return b;
         }
         static void Block2()
