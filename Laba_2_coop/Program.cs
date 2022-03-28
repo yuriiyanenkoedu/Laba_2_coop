@@ -139,19 +139,11 @@ namespace Laba_2_coop
                 myArray[i] = Int32.Parse(Console.ReadLine());
             }
         }
-<<<<<<< HEAD
         static void InputTape(ref int[] myArray, int elemetCount)
         {
             Console.Write("Enter the array:");
             string[] row = Console.ReadLine().Trim().Split();
             myArray = new int[elemetCount];
-=======
-        static void InputTape(ref int[] myArray, int n)
-        {
-            Console.Write("Enter the array:");
-            string[] row = Console.ReadLine().Trim().Split();
-            myArray = new int[n];
->>>>>>> 576b3a9ac091d548785f746df9ff66c31f76e272
             for (int i = 0; i < myArray.Length; i++)
             {
                 myArray[i] = int.Parse(row[i]);
