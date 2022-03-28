@@ -93,7 +93,7 @@ namespace Laba_2_coop
             switch (choise)
             {
                 case 1:
-                    InputTape(ref myArray);
+                    InputTape(ref myArray, n);
                     break;
                 case 2:
                     InputColumn(ref myArray, n);
@@ -142,12 +142,12 @@ namespace Laba_2_coop
                 myArray[i] = Int32.Parse(Console.ReadLine());
             }
         }
-        static void InputTape(ref int[] myArray)
+        static void InputTape(ref int[] myArray, int n)
         {
             Console.Write("Enter the array:");
-            string[] row = Console.ReadLine().Split(' ');
-            myArray = new int[row.Length];
-            for (int i = 0; i < row.Length; i++)
+            string[] row = Console.ReadLine().Trim().Split();
+            myArray = new int[n];
+            for (int i = 0; i < myArray.Length; i++)
             {
                 myArray[i] = int.Parse(row[i]);
             }
