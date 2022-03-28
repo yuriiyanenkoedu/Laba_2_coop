@@ -159,7 +159,7 @@ namespace Laba_2_coop
             int num = int.Parse(Console.ReadLine());
             int[] arr = new int[num];
             ReabLineOneMass(ref arr, num);
-            Print(Block1v3(num, arr));
+            Print(Block1v3(arr));
         }
         static void Print(int[] myArray)
         {
@@ -168,7 +168,7 @@ namespace Laba_2_coop
                 Console.Write(myArray[i] + " ");
             }
         }
-        static int[] Block1v3(int num, int[] arr)
+        static int[] Block1v3(int[] arr)
         {
             Console.Write("Enter the number what are you want to destroy: ");
             int key = int.Parse(Console.ReadLine());
@@ -286,17 +286,13 @@ namespace Laba_2_coop
             }
             else
             {
-                int[][] bArr = new int[n + k][];
+                Array.Resize(ref arr, arr.Length + k);
 
                 for (int i = n - 1; i >= 0; i--)
                 {
-                    bArr[i + k] = arr[i];
+                    arr[i + k] = arr[i];
                 }
-                for (int i = 0; i < k; i++)
-                {
-                    bArr[i] = arr[i];
-                }
-                return bArr;
+                return arr;
             }
         }
         static void Var5Block2()
