@@ -255,7 +255,6 @@ namespace Laba_2_coop
             int choise;
             do
             {
-                Console.Clear();
                 choise = int.Parse(Console.ReadLine());
                 switch (choise)
                 {
