@@ -76,6 +76,7 @@ namespace Laba_2_coop
                             Console.ForegroundColor = ConsoleColor.Black;
                             Console.WriteLine("We are performing option 6!");
                             Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Var6b1();
                             break;
                         }
                 }
@@ -85,7 +86,7 @@ namespace Laba_2_coop
         static void ReabLineOneMass(ref int[] myArray)
         {
             Console.BackgroundColor = ConsoleColor.Black;
-            
+
             Console.Clear();
             Console.WriteLine("Choose how to fill the array: \n\t 1: - Fill in manually (in a row)! \n\t 2: - Fill in manually (in a column)! \n\t 3: - Fill in randomly (entering color)! \n\t 4: - Fill in randomly (trust the god of randomness)!");
             int choise = int.Parse(Console.ReadLine());
@@ -190,7 +191,7 @@ namespace Laba_2_coop
                 Erase(ref arr, keyInd);
             return arr;
         }
-        //rtcyvubino
+        //Блок 1: Варіант 5.
         static int[] Erase(ref int[] arr, int keyInd)
         {
             for (int i = keyInd + 1; i < arr.Length; i++)
@@ -200,7 +201,6 @@ namespace Laba_2_coop
             Array.Resize(ref arr, arr.Length - 1);
             return arr;
         }
-        
         static void Var5b1()
         {
             int num = int.Parse(Console.ReadLine());
@@ -218,6 +218,31 @@ namespace Laba_2_coop
                 }
             }
             return array;
+        }
+        //Блок 1: Варіант 6.
+        static void Var6b1()
+        {
+            Console.Write("Enter the length of array: ");
+            int num = int.Parse(Console.ReadLine());
+            int[] arr = new int[num];
+            ReabLineOneMass(ref arr);
+            Print(Block1v6(arr));
+        }
+        static int[] Block1v6(int[] arr)
+        {
+            int[] b = new int[arr.Length];
+
+            int cnt = 0;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i]%2==0 || arr[i] == 0)
+                {
+                    b[cnt] = arr[i];
+                    cnt++;
+                }
+            }
+            Array.Resize(ref b, cnt);
+            return b;
         }
         static void Block2()
         {
