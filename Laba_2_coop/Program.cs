@@ -217,6 +217,7 @@ namespace Laba_2_coop
         //Блок 1: Варіант 6.
         static void Var6b1()
         {
+            Console.ForegroundColor = ConsoleColor.Black;
             Console.Write("Enter the length of array: ");
             int num = int.Parse(Console.ReadLine());
             int[] arr = new int[num];
@@ -230,14 +231,26 @@ namespace Laba_2_coop
             int cnt = 0;
             for (int i = 0; i < arr.Length; i++)
             {
-                if (arr[i]%2==0 || arr[i] == 0)
+                if ((Math.Abs(arr[i]%2)==0) || arr[i] == 0)
                 {
                     b[cnt] = arr[i];
                     cnt++;
                 }
             }
-            Array.Resize(ref b, cnt);
-            Print(b);
+            if (cnt == arr.Length)
+            {
+                Console.WriteLine("There were no odd numbers in the array");
+                Print(arr);
+            }
+            if(cnt ==0)
+            {
+                Console.WriteLine("There is no array");
+            }
+            else
+            {
+                Array.Resize(ref b, cnt);
+                Print(b);
+            }
             return b;
         }
         static void Block2()
