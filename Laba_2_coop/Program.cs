@@ -38,6 +38,11 @@ namespace Laba_2_coop
                             Console.Clear();
                             break;
                         }
+                    case 0:
+                        {
+                            Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
+                            break;
+                        }
                     default:
                         {
                             Console.WriteLine("Dear user, you input smth wrong");
@@ -45,8 +50,8 @@ namespace Laba_2_coop
                         }
                 }
             } while (choise != 0);
-            Console.WriteLine("Dear user, you have logged out of the program. See you! :) ");
-            Console.ReadKey();
+            
+           // Console.ReadKey();
         }
         static void Block1()
         {
@@ -360,8 +365,23 @@ namespace Laba_2_coop
             int k = int.Parse(Console.ReadLine());
             if (k < 0)
             {
-                Console.WriteLine("Why are you doing this? I can't work with this\ntake your array back");
+                Console.WriteLine("Why are you doing this? I can't work with that\ntake your array back");
                 return arr;
+            }
+            else if (k > n)
+            {
+                int[][] b = new int[n + k][];
+                b[0] = arr[0];
+                for (int i = b.Length - 1; i > 0;)
+                {
+                    for (int j = n - 1; j >= 0; j--)
+                    {
+                        b[i] = arr[j];
+                        i--;
+                    }
+                }
+               
+                return b;
             }
             else
             {
@@ -370,6 +390,10 @@ namespace Laba_2_coop
                 for (int i = n - 1; i >= 0; i--)
                 {
                     arr[i + k] = arr[i];
+                }
+                for (int i = 0; i < k; i++)
+                {
+                    arr[i] = arr[i];
                 }
                 return arr;
             }
